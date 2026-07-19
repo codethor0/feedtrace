@@ -29,6 +29,12 @@ dev = [
   "PyYAML>=6.0",
   "detect-secrets==1.5.0",
 ]
+# Figure and diagram rendering only. Not required for tests, reproduction, or
+# verification, so it is kept out of the CI dev install. Install locally with
+# pip install -e ".[viz]" to regenerate the research-overview diagram.
+viz = [
+  "matplotlib>=3.8",
+]
 
 [project.scripts]
 feedtrace-reproduce = "feedtrace.cli:reproduce_benchmark"

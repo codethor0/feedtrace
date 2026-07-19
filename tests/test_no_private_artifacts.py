@@ -19,6 +19,7 @@ APPROVED_EXTENSIONS = {
     ".yaml",
     ".cff",
     ".png",
+    ".svg",
     ".pdf",
     ".gitignore",
     ".gitattributes",

@@ -33,6 +33,12 @@ Independent research. Not affiliated with, endorsed by, or conducted on behalf o
 - Preliminary automated race labels; main racial-visibility signal Unresolved
 - Single-account observational design
 
+## Research overview
+
+![FeedTrace research overview dashboard. Five charts summarize 1,174 creator-owned LinkedIn original posts. A Lorenz curve shows extreme reach concentration, with a Gini coefficient of 0.799, the top 1 percent of posts holding 63.5 percent of impressions, and the bottom half holding 7.3 percent. A log-log distribution plot shows an upper tail far heavier than a fitted lognormal predicts, with a median of 53 and a maximum of 67,349 recorded impressions. A monthly time series shows an upward descriptive change point in May 2026 of about 2.74 times the earlier level. A correlation chart shows exploratory audience-expansion associations from a 28-post analytics pilot. A raw-median and adjusted-estimate comparison for Direct Black-centered content (n = 61) is marked Unresolved, with q = 0.078. Public materials include the paper, code, aggregate data, reproduction scripts, and checksums.](docs/assets/feedtrace-research-overview.svg)
+
+*FeedTrace research overview. The dashboard plots the study's strongest distribution findings, the descriptive time shift, the exploratory audience-expansion pilot, and the unresolved racial-visibility result directly from tracked public data and frozen aggregate tables. Chart-level data sources, generation, and checksums are documented in [docs/RESEARCH_OVERVIEW_DIAGRAM.md](docs/RESEARCH_OVERVIEW_DIAGRAM.md).*
+
 ## Key findings
 
 Each figure below is a rendered manuscript figure. Generation code for the figures is not part of the public package; see [Reproducibility](#reproducibility) for what can be rerun from public inputs.
