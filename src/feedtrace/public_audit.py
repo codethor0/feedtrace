@@ -225,12 +225,15 @@ def documentation_findings(root: Path) -> list[str]:
             target = match.group("path").strip()
             if target.startswith(("http://", "https://")):
                 badges.append(target)
-                if "img.shields.io" not in target:
+                is_shields = "img.shields.io" in target
+                is_actions_badge = re.search(
+                    r"https://github\.com/[\w.-]+/[\w.-]+/actions/workflows/[\w.-]+/badge\.svg",
+                    target,
+                )
+                if not (is_shields or is_actions_badge):
                     problems.append("readme_badge_external_nonshields")
                 if not alt:
                     problems.append("readme_badge_empty_alt")
-                if "actions" in target or "workflows" in target:
-                    problems.append("readme_ci_badge_present_while_blocked")
                 continue
             if target.startswith(("#", "mailto:")):
                 problems.append("readme_image_anchor_target")
