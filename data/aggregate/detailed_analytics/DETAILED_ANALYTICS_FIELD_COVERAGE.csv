@@ -1,0 +1,12 @@
+field,records_inventoried,original_posts_attempted,records_available,records_missing,denominator_used,reposts_excluded,field_type,description,missingness_reason
+analytics_impressions,31,29,29,0,29,True,count,cumulative display events (estimate),
+members_reached,31,29,28,1,28,True,count,unique members (estimate),field absent from analytics layout for some posts
+followers_reached,31,29,28,1,28,True,percentage,in-network share of impressions,field absent from analytics layout for some posts
+nonfollowers_reached,31,29,28,1,28,True,percentage,out-of-network share of impressions,field absent from analytics layout for some posts
+reactions,31,29,29,0,29,True,count,reactions,
+comments,31,29,29,0,29,True,count,comments,
+reposts,31,29,28,1,28,True,count,reposts,field absent from analytics layout for some posts
+saves,31,29,29,0,29,True,count,saves,
+profile_views,31,29,29,0,29,True,count,profile views from post,
+new_followers,31,29,29,0,29,True,count,followers gained from post,
+link_clicks,31,29,1,28,1,True,count,link clicks (only for link posts),field absent from analytics layout for some posts

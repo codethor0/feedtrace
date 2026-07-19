@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.png binary
+*.pdf binary
+*.csv text
+*.json text
+*.md text
+*.toml text
+*.yml text
+*.yaml text

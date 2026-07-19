@@ -1,0 +1,7 @@
+series,n_points,pelt_breaks,binseg_2break,n_pelt_breaks,placebo_mean_breaks,placebo_share_ge_observed,note
+weekly_median,44,2026-05-17,2026-05-17;2026-06-21,1,0.44,0.31,
+weekly_mean,44,2026-05-17,2026-05-17;2026-06-21,1,0.39,0.305,
+weekly_p90,42,2026-04-26,2026-03-22;2026-04-26,1,0.365,0.265,
+monthly_all,11,2026-05-31,,1,,,variance-minimizing single split (frozen r4 method)
+monthly_excl_top1pct,11,2026-05-31,,1,,,variance-minimizing single split (frozen r4 method)
+monthly_excl_max,11,2026-05-31,,1,,,variance-minimizing single split (frozen r4 method)

@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# Local reproduction
+reproduced/
+.tmp/
+*.log
+
+# Secrets and local env
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Private / audit (never commit)
+*Private*
+*private*
+*.pem
+*.key
+cookies*
+tokens*
+secrets*
+# Exception: this public-boundary test legitimately references the word "private"
+!tests/test_no_private_artifacts.py
+
+# Agent / prompt artifacts
+.cursor/
+.codex/
+agent-transcripts/
+*.plan.md

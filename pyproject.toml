@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "feedtrace"
+version = "0.1.0"
+description = "Independent longitudinal research on LinkedIn recorded impressions, ranking, and visibility using creator-owned data."
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "Isaac Thor" }]
+license = { text = "MIT AND CC-BY-4.0" }
+keywords = [
+  "algorithm-audit",
+  "recommender-systems",
+  "platform-transparency",
+  "reproducible-research",
+]
+dependencies = [
+  "numpy==2.5.1",
+  "pandas==2.3.3",
+  "scikit-learn==1.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+  "PyYAML>=6.0",
+  "detect-secrets==1.5.0",
+]
+
+[project.scripts]
+feedtrace-reproduce = "feedtrace.cli:reproduce_benchmark"
+feedtrace-verify-numeric = "feedtrace.cli:verify_numeric_cli"
+feedtrace-verify-checksums = "feedtrace.cli:verify_checksums_cli"
+feedtrace-audit = "feedtrace.cli:audit_public_tree_cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/feedtrace"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/feedtrace",
+  "scripts",
+  "tests",
+  "data",
+  "results/model_outputs",
+  "docs",
+  "README.md",
+  "LICENSE.md",
+  "LICENSES",
+  "CITATION.cff",
+  "pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

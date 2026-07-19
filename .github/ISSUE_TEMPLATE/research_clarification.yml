@@ -1,0 +1,35 @@
+name: Research clarification
+description: Ask a clarification question about the public research materials
+title: "[research] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep discussion focused on public materials. Do not request private data or collection code.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Related section
+      options:
+        - README / summary
+        - Methods
+        - Results / tables
+        - Reproducibility
+        - Privacy / ethics
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I confirm this issue contains no private LinkedIn data or credentials
+          required: true

@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a problem with the public package or documentation
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not attach private LinkedIn data, raw exports, cookies, tokens, or authentication material.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: OS, Python version, and exact commands
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I confirm this issue contains no private LinkedIn data or credentials
+          required: true

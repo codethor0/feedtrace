@@ -1,0 +1,9 @@
+test,frozen_primary_raw_p,bh_q_value,holm_adjusted_p,bonferroni_adjusted_p,source,model_rerun,note
+black_centered_group,0.286193942819156,0.707387143202747,1,1,frozen_race_results_checkpoint,no,Arithmetic transcribed from complete frozen 8-topic primary OLS family
+racial_justice_group,0.696784014751911,0.707387143202747,1,1,frozen_race_results_checkpoint,no,Arithmetic transcribed from complete frozen 8-topic primary OLS family
+black_centered_content,0.00975381263753614,0.0780305011002891,0.0780305011002891,0.0780305011002891,frozen_race_results_checkpoint,no,Arithmetic transcribed from complete frozen 8-topic primary OLS family
+black_creator_issue,0.182315118318544,0.707387143202747,1,1,frozen_race_results_checkpoint,no,Arithmetic transcribed from complete frozen 8-topic primary OLS family
+anti_racism,0.695167674325056,0.707387143202747,1,1,frozen_race_results_checkpoint,no,Arithmetic transcribed from complete frozen 8-topic primary OLS family
+police_violence,0.707387143202747,0.707387143202747,1,1,frozen_race_results_checkpoint,no,Arithmetic transcribed from complete frozen 8-topic primary OLS family
+civil_rights,0.656633564536798,0.707387143202747,1,1,frozen_race_results_checkpoint,no,Arithmetic transcribed from complete frozen 8-topic primary OLS family
+immigration_race_context,0.442200897172828,0.707387143202747,1,1,frozen_race_results_checkpoint,no,Arithmetic transcribed from complete frozen 8-topic primary OLS family

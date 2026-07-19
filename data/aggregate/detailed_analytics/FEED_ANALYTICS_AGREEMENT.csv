@@ -1,0 +1,2 @@
+n,analytics_ge_feed_count,median_ratio,median_abs_difference,bland_altman_mean_log_diff,bland_altman_sd_log_diff,loa_low,loa_high,log_diff_vs_age_spearman_rho,log_diff_vs_age_p,note
+29,29,1.0052356020942408,1.0,0.03957072843343814,0.13149072883481067,-0.21815110008279073,0.297292556949667,-0.4518208008987575,0.013873961163601957,"Analytics collected later than feed snapshots; impressions accumulate, so analytics >= feed is expected."

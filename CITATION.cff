@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: If you use this research software or cite the study, please use the preferred citation below.
+title: FeedTrace
+version: 0.1.0-preprint
+date-released: "2026-07-19"
+authors:
+  - family-names: Thor
+    given-names: Isaac
+abstract: >
+  Independent longitudinal research on LinkedIn recorded impressions, ranking,
+  audience expansion, and preliminary racial-visibility patterns using creator-owned data.
+keywords:
+  - algorithm audit
+  - recommender systems
+  - platform transparency
+  - reproducible research
+  - LinkedIn
+license: MIT
+preferred-citation:
+  type: report
+  title: "FeedTrace: Reach, Ranking, and Black Visibility in 1,174 LinkedIn Posts"
+  authors:
+    - family-names: Thor
+      given-names: Isaac
+  year: 2026
+  notes: Independent research report; racial-visibility labels are preliminary automated labels; main race signal remains Unresolved.

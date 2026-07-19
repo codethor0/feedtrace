@@ -1,0 +1,35 @@
+{
+  "seed": 20260719,
+  "alpha": 0.1,
+  "outcome": "natural log of strictly positive recorded impressions",
+  "features": [
+    "log_age_h",
+    "word_count",
+    "hashtag_count",
+    "has_img",
+    "has_vid",
+    "has_doc",
+    "posts_prev_24h"
+  ],
+  "split_rule": "first 60% train, next 20% calibration, final 20% test, chronological",
+  "train": {
+    "n": 703,
+    "start_utc": "2025-09-06T01:56:58.669000+00:00",
+    "end_utc": "2026-03-10T20:09:10.564000+00:00"
+  },
+  "calibration": {
+    "n": 235,
+    "start_utc": "2026-03-16T19:33:37.056000+00:00",
+    "end_utc": "2026-06-01T00:04:42.564000+00:00"
+  },
+  "test": {
+    "n": 235,
+    "start_utc": "2026-06-02T03:08:40.022000+00:00",
+    "end_utc": "2026-07-18T05:31:32.243000+00:00"
+  },
+  "calibration_score": "absolute residual on calibration observations only",
+  "quantile_rule": "ceil((n_calibration + 1) * (1 - alpha))-th order statistic",
+  "test_used_for_fitting_or_calibration": false,
+  "exchangeability_caveat": "Chronological data may violate exchangeability; the algorithm uses a valid separate calibration set and finite-sample order statistic, but the usual marginal coverage guarantee requires calibration and test examples to be exchangeable.",
+  "input_file": "R9_SANITIZED_NON_RACE_ANALYTIC_DATA.csv"
+}
