@@ -80,7 +80,13 @@ def test_every_featured_figure_in_manifest_with_checksum():
         digest = _sha256(ROOT / target)
         assert target in manifest_text, f"{target} missing from visuals manifest"
         assert digest in manifest_text, f"checksum for {target} missing/wrong in manifest"
-        assert digest in figures_text, f"checksum for {target} missing/wrong in figures/README"
+        # Manuscript figures are also documented in figures/README.md. The
+        # generated research-overview diagram lives under docs/assets/ and is
+        # documented in docs/RESEARCH_OVERVIEW_DIAGRAM.md instead.
+        if target.startswith("figures/rendered/"):
+            assert digest in figures_text, (
+                f"checksum for {target} missing/wrong in figures/README"
+            )
 
 
 def test_figures_readme_documents_every_rendered_figure():
