@@ -148,5 +148,10 @@ def test_git_history_has_no_tool_or_personal_metadata():
         text=True,
         check=True,
     ).stdout.split()
+    # noreply@github.com is GitHub's own service identity, used as the committer
+    # of squash merges and of the synthetic merge commit checked out in CI.
+    allowed_service = {"noreply@github.com"}
     for email in emails:
-        assert email.endswith("users.noreply.github.com"), email
+        assert (
+            email.endswith("users.noreply.github.com") or email in allowed_service
+        ), email

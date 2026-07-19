@@ -239,8 +239,8 @@
     },
     {
       "path": "docs/REPRODUCIBILITY.md",
-      "sha256": "a0f7ac5c7db564916e10e305436fb3f8647bbcf49c252716be48259d86ea57e0",
-      "bytes": 1308
+      "sha256": "e4c213943f008bf8dbbe5a08931738fb84c5cddc0451ff3aafa2df0ce2fd8394",
+      "bytes": 1504
     },
     {
       "path": "docs/RESEARCH_CYCLE.md",
@@ -484,7 +484,7 @@
     },
     {
       "path": "scripts/verify_numeric.py",
-      "sha256": "935758bf6efa4d9471303c478e2db802aaad425c077c1daa5e1e3820af3032d5",
+      "sha256": "494c41696a2b553d456315d98fa16a5d73ee7dfbc056d4c42347a192c0072f24",
       "bytes": 1379
     },
     {
@@ -499,7 +499,7 @@
     },
     {
       "path": "src/feedtrace/cli.py",
-      "sha256": "f6c9d46ff9cc3681abb41754e616615d98753244d668dfc63c50069848dd3dd4",
+      "sha256": "2e42602375e67ecacd239da19f7c4c8d39e255205e5f61b1aeb2cf6a9280b8a7",
       "bytes": 3452
     },
     {
@@ -524,8 +524,8 @@
     },
     {
       "path": "src/feedtrace/validation.py",
-      "sha256": "19ba101c65c724b79011f558dffedd4a67c7315d3ae1971b8cfced976787c8f9",
-      "bytes": 4764
+      "sha256": "b78c2e50bb6a47559a81aacad9adbd685beeb2e0d05278078ac36fba225ce68d",
+      "bytes": 5071
     },
     {
       "path": "tests/__init__.py",
@@ -559,8 +559,8 @@
     },
     {
       "path": "tests/test_readme_visuals.py",
-      "sha256": "69a88a6b971498ef92d8628fa564414bb40be1b4eab0c0bb130e1d0753154e3f",
-      "bytes": 5116
+      "sha256": "afeb679161f4f7e6e2f03a6e9c3de573edac17b2be33822d122d1f4d3b58b080",
+      "bytes": 5370
     }
   ]
 }

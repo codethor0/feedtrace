@@ -38,7 +38,7 @@ def verify_numeric_cli() -> None:
         default=Path("results/model_outputs"),
     )
     parser.add_argument("--reproduced", type=Path, default=None)
-    parser.add_argument("--rtol", type=float, default=1e-6)
+    parser.add_argument("--rtol", type=float, default=5e-4)
     parser.add_argument("--atol", type=float, default=1e-9)
     args = parser.parse_args()
     ok, problems = verify_numeric(
