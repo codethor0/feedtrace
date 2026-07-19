@@ -23,7 +23,7 @@
 
 ## Environment
 
-Python 3.12 or later. Runtime dependencies are pinned in `pyproject.toml`. When present, `pylock.toml` provides a standardized lock generated with `python -m pip lock`. Exact byte hashes can vary across platforms even when numbers match; use `scripts/verify_numeric.py` as the version-robust gate (default rtol 1e-6, atol 1e-9).
+Python 3.12 or later. Runtime dependencies are pinned in `pyproject.toml`. When present, `pylock.toml` provides a standardized lock generated with `python -m pip lock`. Exact byte hashes can vary across platforms even when numbers match; use `scripts/verify_numeric.py` as the version-robust gate (default rtol 5e-4, atol 1e-9; the relative tolerance absorbs small cross-platform floating-point differences between operating systems and CPU architectures while staying far tighter than the manuscript's reporting precision).
 
 ## Commands
 

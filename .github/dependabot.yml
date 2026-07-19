@@ -5,6 +5,12 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    # Defer pandas 3 until a dedicated compatibility branch passes the full
+    # test, reproduction, and numerical-verification suite. Security and minor
+    # updates within the supported major version are still allowed.
+    ignore:
+      - dependency-name: pandas
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:

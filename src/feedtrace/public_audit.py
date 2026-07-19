@@ -172,6 +172,114 @@ def scan_public_tree(root: Path) -> list[Finding]:
     return findings
 
 
+_IMAGE_RE = re.compile(r"!\[(?P<alt>[^\]]*)\]\((?P<path>[^)]+)\)")
+_LINK_RE = re.compile(r"(?<!\!)\[(?P<text>[^\]]+)\]\((?P<path>[^)]+)\)")
+
+COMMUNITY_FILES = (
+    "README.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "ROADMAP.md",
+    "LICENSE.md",
+    "CITATION.cff",
+    "docs/README_VISUALS_MANIFEST.md",
+    "figures/README.md",
+)
+
+
+def _is_external_or_anchor(target: str) -> bool:
+    target = target.strip()
+    return (
+        target.startswith("http://")
+        or target.startswith("https://")
+        or target.startswith("#")
+        or target.startswith("mailto:")
+    )
+
+
+def documentation_findings(root: Path) -> list[str]:
+    """Check README assets, the visuals manifest, community files, and workflows.
+
+    Returns human-readable problem strings. Sensitive content is never included.
+    """
+    root = Path(root)
+    problems: list[str] = []
+
+    for rel in COMMUNITY_FILES:
+        if not (root / rel).exists():
+            problems.append(f"missing_community_file:{rel}")
+
+    readme = root / "README.md"
+    manifest_path = root / "docs" / "README_VISUALS_MANIFEST.md"
+    manifest_text = manifest_path.read_text() if manifest_path.exists() else ""
+
+    if readme.exists():
+        text = readme.read_text()
+
+        featured: list[str] = []
+        badges: list[str] = []
+        for match in _IMAGE_RE.finditer(text):
+            alt = match.group("alt").strip()
+            target = match.group("path").strip()
+            if target.startswith(("http://", "https://")):
+                badges.append(target)
+                if "img.shields.io" not in target:
+                    problems.append("readme_badge_external_nonshields")
+                if not alt:
+                    problems.append("readme_badge_empty_alt")
+                if "actions" in target or "workflows" in target:
+                    problems.append("readme_ci_badge_present_while_blocked")
+                continue
+            if target.startswith(("#", "mailto:")):
+                problems.append("readme_image_anchor_target")
+                continue
+            if target.startswith("/"):
+                problems.append(f"readme_image_absolute_path:{target}")
+            asset = (root / target).resolve()
+            if not asset.exists():
+                problems.append(f"readme_image_missing:{target}")
+            if not alt:
+                problems.append(f"readme_image_empty_alt:{target}")
+            elif alt == Path(target).name or len(alt) < 20:
+                problems.append(f"readme_image_weak_alt:{target}")
+            if asset.exists() and asset.stat().st_size > 500_000:
+                problems.append(f"readme_image_too_large:{target}")
+            featured.append(target)
+            if manifest_text and target not in manifest_text:
+                problems.append(f"readme_image_not_in_manifest:{target}")
+
+        if len(featured) != len(set(featured)):
+            problems.append("readme_duplicate_featured_image")
+
+        if len(badges) > 3:
+            problems.append("readme_too_many_badges")
+
+        for match in _LINK_RE.finditer(text):
+            target = match.group("path").strip()
+            if _is_external_or_anchor(target):
+                continue
+            clean = target.split("#", 1)[0].split("?", 1)[0]
+            if not clean:
+                continue
+            if clean.startswith("/"):
+                problems.append(f"readme_link_absolute_path:{clean}")
+            if not (root / clean).exists():
+                problems.append(f"readme_link_missing:{clean}")
+
+    workflows = root / ".github" / "workflows"
+    if workflows.exists():
+        for wf in sorted(workflows.glob("*.y*ml")):
+            wf_text = wf.read_text()
+            if "pull_request_target" in wf_text:
+                problems.append(f"workflow_pull_request_target:{wf.name}")
+            if re.search(r"contents:\s*write", wf_text):
+                problems.append(f"workflow_contents_write:{wf.name}")
+
+    return problems
+
+
 def forbidden_data_files(root: Path) -> list[str]:
     bad: list[str] = []
     for path in root.rglob("*"):
