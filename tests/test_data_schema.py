@@ -3,7 +3,6 @@
 from pathlib import Path
 
 import pandas as pd
-import pytest
 
 from feedtrace.schema import FORBIDDEN_COLUMNS, REQUIRED_COLUMNS, inventory_counts, load_sanitized_table
 

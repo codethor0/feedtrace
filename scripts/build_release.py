@@ -7,9 +7,10 @@ import argparse
 import zipfile
 from pathlib import Path
 
-from feedtrace.checksums import write_checksums
+from feedtrace.checksums import write_checksums, write_public_manifest
 
 SKIP = {".venv", ".git", "__pycache__", ".pytest_cache", ".ruff_cache", "dist", "build"}
+MANIFEST_VERSION = "0.1.0-preprint"
 
 
 def main() -> int:
@@ -22,6 +23,9 @@ def main() -> int:
     )
     args = parser.parse_args()
     root = args.root.resolve()
+    write_public_manifest(
+        root, root / "release" / "PUBLIC_MANIFEST.json", MANIFEST_VERSION
+    )
     write_checksums(
         root,
         root / "release" / "SHA256SUMS.txt",

@@ -6,7 +6,11 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from feedtrace.public_audit import forbidden_data_files, scan_public_tree
+from feedtrace.public_audit import (
+    documentation_findings,
+    forbidden_data_files,
+    scan_public_tree,
+)
 
 
 def main() -> int:
@@ -16,14 +20,17 @@ def main() -> int:
 
     findings = scan_public_tree(args.root)
     bad_files = forbidden_data_files(args.root)
-    if not findings and not bad_files:
-        print("PASS: public-boundary scan clean")
+    doc_problems = documentation_findings(args.root)
+    if not findings and not bad_files and not doc_problems:
+        print("PASS: public-boundary and documentation scan clean")
         return 0
     print("FAIL: public-boundary findings")
     for finding in findings:
         print(f"  - {finding.path}:{finding.line} [{finding.rule}]")
     for path in bad_files:
         print(f"  - {path} [forbidden_filename]")
+    for problem in doc_problems:
+        print(f"  - {problem} [documentation]")
     return 1
 
 
