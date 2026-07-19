@@ -6,6 +6,7 @@ Independent research. Not affiliated with, endorsed by, or conducted on behalf o
 
 **Status.** Preliminary preprint checkpoint. Race-related topic labels were produced by a deterministic keyword taxonomy and remain preliminary. The main account-level racial-visibility signal is **Unresolved**. This repository does not prove or disprove suppression.
 
+[![CI status](https://github.com/codethor0/feedtrace/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/codethor0/feedtrace/actions/workflows/ci.yml)
 ![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-blue)
 ![License: MIT and CC BY 4.0](https://img.shields.io/badge/license-MIT%20AND%20CC--BY--4.0-green)
 
